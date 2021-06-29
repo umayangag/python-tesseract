@@ -6,6 +6,7 @@ from flask import Flask
 from flask_restful import Api, Resource, reqparse
 from flask import request
 from waitress import serve
+
 try:
     from PIL import Image
 except ImportError:
@@ -23,7 +24,9 @@ class OCR(Resource):
             return {"error": "invalid input"}, 500
         response = requests.get(url)
         img = Image.open(io.BytesIO(response.content))
-        return pytesseract.image_to_string(img)
+        text = pytesseract.image_to_string(img)
+        print(text)
+        return text
 
 
 class HealthCheck(Resource):
