@@ -36,4 +36,4 @@ class HealthCheck(Resource):
 
 api.add_resource(OCR, "/extract")
 api.add_resource(HealthCheck, "/health")
-serve(app, port=8081)  # Change port number for production
+serve(app, port=8082)  # Change port number for production
