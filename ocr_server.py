@@ -15,6 +15,7 @@ except ImportError:
 import pytesseract
 
 app = Flask(__name__)
+app.config.setdefault('WTF_CSRF_METHODS', ['POST', 'PUT', 'PATCH'])
 api = Api(app)
 
 
