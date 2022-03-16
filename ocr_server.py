@@ -3,9 +3,10 @@
 import io
 import requests
 from flask import Flask
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, Resource
 from flask import request
 from waitress import serve
+from urllib.parse import quote
 
 try:
     from PIL import Image
@@ -22,6 +23,7 @@ class OCR(Resource):
         url = request.args.get('url')
         if url is None or url == "":
             return {"error": "invalid input"}, 500
+        url = quote(url, safe='/')
         response = requests.get(url)
         img = Image.open(io.BytesIO(response.content))
         text = pytesseract.image_to_string(img)
