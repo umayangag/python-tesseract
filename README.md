@@ -1,5 +1,5 @@
-# Standford-NER-python-wrapper
-A python wrapper and server implementation for Stanford NER
+# Python-Tesseract
+A python wrapper and server implementation for Tesseract OCR
 
 ## Requirements 
 Python 3.8
